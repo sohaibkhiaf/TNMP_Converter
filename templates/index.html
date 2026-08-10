@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>
+        Texture to Normal Map
+    </title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        input {
+            margin: 20px;
+        }
+
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            background: #222;
+            color: white;
+        }
+
+        img {
+            max-width: 500px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>
+        Texture → Normal Map
+    </h1>
+
+    <form
+        action="/generate"
+        method="POST"
+        enctype="multipart/form-data"
+    >
+
+        <input
+            type="file"
+            name="texture"
+            accept="image/*"
+            required
+        >
+
+        <br>
+
+        <button type="submit">
+            Generate Normal Map
+        </button>
+
+    </form>
+
+
+    {% if result %}
+
+        <h2>
+            Generated Normal Map
+        </h2>
+
+        <img
+            src="{{ result }}"
+            alt="Generated Normal Map"
+        >
+
+        <br><br>
+
+        <a
+            href="{{ result }}"
+            download="normal_map.png"
+        >
+            Download Normal Map
+        </a>
+
+    {% endif %}
+
+</div>
+
+</body>
+
+</html>
