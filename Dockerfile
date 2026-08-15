@@ -72,14 +72,6 @@ RUN a2enmod wsgi && \
     a2dissite 000-default.conf && \
     a2ensite tnmp_converter.conf
 
-
-# ============================================================
-# Apache ServerName
-# ============================================================
-
-# RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
-
-
 # ============================================================
 # Permissions
 # ============================================================
