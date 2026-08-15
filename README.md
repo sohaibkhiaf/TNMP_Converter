@@ -8,10 +8,13 @@ docker run -d --name tnmp_converter -p 8080:80 tnmp_converter
 docker run -v ./checkpoints:/var/www/tnmp_converter/checkpoints -d --name tnmp_converter -p 8080:80 tnmp_converter
 
 docker tag tnmp_converter:latest sohaibkhiaf/tnmp_converter:latest
+
+docker exec -it tnmp_converter /bin/bash
+
 # Prod
 docker run -v /var/www/tnmp_converter/checkpoints:/var/www/tnmp_converter/checkpoints -d -p 80:80 sohaibkhiaf/tnmp_converter:latest
 
-docker exec -it tnmp_converter /bin/bash
+docker exec -it 30c0d71af82d  /bin/bash
 
 # Dev/ Ci
 pip install ruff
