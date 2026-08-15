@@ -4,7 +4,7 @@ from datetime import datetime
 
 import torch
 import torchvision.transforms.functional as tf
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from PIL import Image
 from torch import nn
@@ -266,7 +266,9 @@ def index():
 
     generated_maps = NormalMap.query.order_by(NormalMap.created_at.desc()).all()
 
-    return render_template("index.html", generated_maps=generated_maps)
+    result = request.args.get("result")
+
+    return render_template("index.html", generated_maps=generated_maps, result=result)
 
 
 # ============================================================
@@ -375,11 +377,8 @@ def generate():
     # Return homepage
     # ========================================================
 
-    generated_maps = NormalMap.query.order_by(NormalMap.created_at.desc()).all()
-
-    return render_template(
-        "index.html", generated_maps=generated_maps, result=normal_map_url
-    )
+    # Return homepage
+    return redirect(url_for("index", result=normal_map_url))
 
 
 # ============================================================

@@ -1,6 +1,6 @@
 .vscode/ 
 checkpoints/ 
-static/ 
-uploads/
+static/generated/
+static/uploads/
 
 
