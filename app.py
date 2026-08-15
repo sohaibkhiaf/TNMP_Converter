@@ -4,7 +4,7 @@ from datetime import datetime
 
 import torch
 import torchvision.transforms.functional as tf
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, redirect, render_template, request, url_for
 from flask_sqlalchemy import SQLAlchemy
 from PIL import Image
 from torch import nn

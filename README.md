@@ -20,9 +20,10 @@ ruff check .
 
 ruff check . --fix
 
+ruff format --check .
+
 ruff format .
 
-ruff format --check .
 
 
 
